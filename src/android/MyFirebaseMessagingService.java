@@ -81,7 +81,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         NotificationManager notificationManager =
                 (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
-	if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+	  if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
 
 	      /* Create or update. */
 	      NotificationChannel channel = new NotificationChannel("magnamylife_channel",
