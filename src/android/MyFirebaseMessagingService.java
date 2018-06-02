@@ -1,5 +1,5 @@
 package com.gae.scaffolder.plugin;
-
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -79,6 +79,15 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
         NotificationManager notificationManager =
                 (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+	if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+
+	      /* Create or update. */
+	      NotificationChannel channel = new NotificationChannel("magnamylife_channel",
+		  "push_channel", 
+		  NotificationManager.IMPORTANCE_DEFAULT);
+	      notificationManager.createNotificationChannel(channel);
+	  }
 
         notificationManager.notify(0 /* ID of notification */, notificationBuilder.build());
     }
